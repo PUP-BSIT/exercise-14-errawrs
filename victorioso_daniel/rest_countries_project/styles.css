@@ -1,0 +1,247 @@
+/* Main container styling */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Search area - vertically centered by default */
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: auto;
+  max-width: 600px;
+  text-align: center;
+  transition: margin 0.5s ease;
+}
+
+/* When results are shown, move search to top */
+.results-shown .search-container {
+  margin: 2rem auto;
+}
+
+.search-title {
+  margin-bottom: 1rem;
+  color: #333;
+  font-size: 2.5rem;
+}
+
+.search-form {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+#keyword {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  padding: 0.75rem 1.5rem;
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #0b5ed7;
+}
+
+/* Country output area - hidden by default */
+.country-output {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  display: none; /* Hidden by default */
+}
+
+/* Show the output when it has content from search */
+.results-shown .country-output {
+  display: block;
+}
+
+/* Country information styling */
+.country-name {
+  color: #212529;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #dee2e6;
+  padding-bottom: 0.5rem;
+}
+
+.country-flag {
+  max-width: 200px;
+  border: 1px solid #dee2e6;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.country-details {
+  list-style-type: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.country-details li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #dee2e6;
+  font-size: 1.1rem;
+}
+
+/* Other countries section */
+h3 {
+  color: #495057;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+#countries-list-container {
+  transition: height 0.3s ease;
+  position: relative;
+}
+
+.other-countries-list {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+.other-country {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  text-align: center;
+}
+
+.other-country:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.other-country-flag {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border: 1px solid #dee2e6;
+  margin-bottom: 0.75rem;
+}
+
+.other-country-name {
+  font-size: 0.9rem;
+  color: #495057;
+  margin: 0;
+}
+
+/* Error message styling */
+.error-message {
+  color: #dc3545;
+  font-weight: 600;
+  padding: 1rem;
+  background-color: #f8d7da;
+  border-radius: 6px;
+}
+
+/* Pagination controls */
+.pagination-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dee2e6;
+}
+
+.pagination-button {
+  padding: 0.5rem 1rem;
+  background-color: #e9ecef;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+  background-color: #dee2e6;
+}
+
+.pagination-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination-info {
+  color: #6c757d;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .other-countries-list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .other-countries-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .country-output {
+    padding: 1.5rem;
+    margin: 1rem;
+  }
+  
+  .search-form {
+    flex-direction: column;
+  }
+  
+  .country-name {
+    font-size: 1.5rem;
+  }
+  
+  .search-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .other-countries-list {
+    grid-template-columns: 1fr;
+  }
+}
