@@ -1,0 +1,372 @@
+h1 {
+    background: url(./assets/green.jpg);
+    font-style: oblique;
+    color: darkblue;
+    background-repeat: no-repeat;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+p {
+    color: yellow;
+}
+
+strong {
+    color: yellow;
+}
+
+h2 {
+    text-align: center;
+    font-style: oblique;
+    color: darkblue;
+}
+
+body {
+    margin: 0px;
+    background-color: green;
+    box-sizing: border-box;
+}
+
+.hobbies-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hobbies-container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-color: yellow;
+    color: darkblue;
+    width: 900px;
+    border-radius: 20px;
+}
+
+.works-section {
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.works-container {
+    display: flex;
+    background-color: yellow;
+    color: darkblue;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 900px;
+    border-radius: 20px;
+}
+
+.works-container a {
+    color: darkblue;
+}
+
+.works-container a:hover {
+    color: black;
+}
+
+.testimonials-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.testimonials-container {
+    text-align: center;
+    padding: 15px;
+    background-color: yellow;
+    border-radius: 15px;
+    width: 900px;
+}
+
+.comment-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.comment-box {
+    width: 250px;
+    background-color: blue;
+    padding: 10px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.gallery-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.gallery-container {
+    background-color: yellow;
+    border-radius: 15px;
+    width: 900px;
+    padding: 20px;
+}
+
+.img-container {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: 10px;
+    width: 100%;
+}
+
+.img-container img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.img-container img:hover {
+    transform: scale(1.1);
+}
+
+.contact-section {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container {
+    background-color: yellow;
+    width: 900px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-container a {
+    color: darkblue;
+}
+
+.contact-container a:hover {
+    color: black;
+}
+
+.goals-section {
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.goals-container {
+    background-color: yellow;
+    border-radius: 10px;
+    padding: 15px;
+    width: 900px;
+}
+
+.sort-option {
+    display: block;
+    margin: auto;
+}
+
+.comment-section {
+    background-color: darkblue;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 15px 20px 15px;
+}
+
+.comment-section h2 {
+    color: yellow;
+}
+
+.goal-item {
+    background-color: darkblue;
+    margin: 15px;
+    border-radius: 10px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    border: none;
+    font-size: 18px;
+    box-sizing: border-box;
+    background-color: yellow;
+    color: darkblue;
+}
+
+textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    font-size: 15px;
+    color: darkblue;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    margin: auto;
+}
+
+.goal-item, .goal-item p {
+    padding: 5px;
+    font-size: 20px;
+}
+
+.teammate-comment {
+    padding: 10px;
+    background-color: darkblue;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    margin: 20px;
+}
+
+.teammate-comment p {
+    color: darkblue;
+}
+
+.teammate-comment strong {
+    color: darkblue;
+}
+
+.comment-item {
+    width: 90%;
+    background-color: yellow;
+    padding: 5px;
+    border-radius: 15px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.enable {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+.comment-timestamp { 
+    display: flex;
+    flex-direction: column;
+}
+
+/* Mobile S */
+@media (max-width: 320px) {
+    h1 {
+        height: 70px;
+        font-size: 24px;
+    }
+
+    .hobbies-container,
+    .works-container,
+    .testimonials-container,
+    .gallery-container,
+    .contact-container,
+    .goals-container {
+        width: 90%;
+        padding: 10px;
+    }
+
+    .img-container {
+        grid-template-columns: 1fr;
+    }
+
+    .teammate-comment {
+        width: 90%;
+        gap: 10px;
+        margin: auto;
+    }
+
+    .comment-box,
+    .comment-item {
+        width: 100%;
+    }
+}
+
+/* Mobile M */
+@media (min-width: 321px) and (max-width: 375px) {
+    h1 {
+        height: 80px;
+        font-size: 26px;
+    }
+
+    .hobbies-container,
+    .works-container,
+    .testimonials-container,
+    .gallery-container,
+    .contact-container,
+    .goals-container {
+        width: 90%;
+        padding: 12px;
+    }
+
+    .img-container {
+        grid-template-columns: 1fr;
+    }
+
+    .teammate-comment {
+        width: 90%;
+    }
+
+    .comment-box,
+    .comment-item {
+        width: 90%;
+    }
+}
+
+/* Mobile L */
+@media (min-width: 376px) and (max-width: 425px) {
+    h1 {
+        height: 90px;
+        font-size: 28px;
+    }
+
+    .hobbies-container,
+    .works-container,
+    .testimonials-container,
+    .gallery-container,
+    .contact-container,
+    .goals-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .img-container {
+        grid-template-columns: 1fr;
+    }
+
+    .teammate-comment {
+        width: 90%;
+        gap: 15px;
+    }
+
+    .comment-box,
+    .comment-item {
+        width: 90%;
+    }
+}
