@@ -1,0 +1,954 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+    margin-bottom: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #333;
+    position: relative;
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-image: linear-gradient(90deg, #eebd89, #d13abd);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.name {
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.name::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./Assets/Images/bg_image.jpg');
+    background-position: center;
+    background-size: cover;
+    filter: brightness(0.7);
+    z-index: -1;
+}
+
+.name h1 {
+    font-size: 3.5rem;
+    color: white;
+    text-shadow: -2px -2px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+    transform: translateY(-10px);
+    animation: fadeInDown 1s ease-out;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(-10px);
+    }
+}
+
+/* Interests Section */
+.interests {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+.my-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin-top: 20px;
+}
+
+.interests .my-list li {
+    background-image: linear-gradient(45deg, #eebd89, #d13abd);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.interests .my-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Works Section */
+.works {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 40px;
+    border: none;
+}
+
+.works .my-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.works .my-list li {
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.works .my-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.works .my-list a {
+    text-decoration: none;
+    color: #d13abd;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    transition: color 0.3s ease;
+}
+
+.works .my-list a:hover {
+    color: #eebd89;
+}
+
+/* Goals Section */
+.goals {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin-bottom: 40px;
+}
+
+.goals-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.goal-item {
+    background: linear-gradient(135deg, #f9f9f9, #f0f0f0);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-left: 4px solid #d13abd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.goal-item:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.goal-icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.goal-item h3 {
+    color: #d13abd;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.goal-item p {
+    color: #555;
+    font-size: 1rem;
+}
+
+/* Goal Comments Section */
+.goal-comments {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed #ccc;
+}
+
+.goal-comments h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.goal-comment-form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.goal-comment-form button[type='submit'] {
+    background-image: linear-gradient(to right, #d13abd, #eebd89);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(209, 58, 189, 0.3);
+}
+
+.goal-comment-form button[type='submit']:hover:not([disabled]) {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(209, 58, 189, 0.4);
+}
+
+.goal-comment-form button[type='submit']:disabled {
+    background-image: linear-gradient(to right, #cccccc, #999999);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+    
+}
+
+.sort-select {
+    background-color: #eebd89;
+    background-image: linear-gradient(to right, #eebd89, #d13abd);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(209, 58, 189, 0.3);
+    width: 100%;
+    max-width: 300px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding-right: 40px;
+    position: relative;
+    background-repeat: no-repeat;
+}
+
+.sort-controls {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 20px;
+}
+
+.sort-controls::after {
+    content: '';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 10px solid white;
+    pointer-events: none;
+}
+
+.testimonial-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.comments {
+    width: 100%;
+    background-image: linear-gradient(135deg, #eebd89, #d13abd);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.comments:hover {
+    transform: translateY(-10px);
+}
+
+.comments p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.comments p::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: -5px;
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.2);
+    font-family: Georgia, serif;
+}
+
+.comments span {
+    display: block;
+    text-align: right;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Gallery Section */
+.gallery {
+    color: white;
+    padding: 60px 0;
+    margin-bottom: 40px;
+    background-image: linear-gradient(135deg, #eebd89, #d13abd);
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+        1px 1px 0 #000;
+}
+
+.gallery h2 {
+    color: white;
+}
+
+.gallery h2::after {
+    background-color: white;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.gallery-item {
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Contact Form */
+.contact {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.contact h2 {
+    color: #333;
+    text-shadow: none;
+}
+
+.contact-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group.full-width {
+    grid-column: span 2;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+    font-weight: bold;
+}
+
+input[type='text'],
+input[type='email'],
+textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type='text']:focus,
+input[type='email']:focus,
+textarea:focus {
+    outline: none;
+    border-color: #d13abd;
+    box-shadow: 0 0 0 3px rgba(209, 58, 189, 0.1);
+}
+
+button[type='submit'] {
+    grid-column: span 2;
+    background-image: linear-gradient(to right, #eebd89, #d13abd);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(238, 189, 137, 0.3);
+    margin-top: 10px;
+}
+
+button[type='submit']:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(209, 58, 189, 0.4);
+}
+
+button[type='submit']:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(209, 58, 189, 0.4);
+}
+
+/* Goal Teammates Comments Section */
+.existing-comments {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 1px dashed #ccc;
+}
+
+.existing-comments h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.teammate-comment {
+    background-image: linear-gradient(135deg, #eebd89, #d13abd);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transition: transform 0.3s ease;
+    margin-bottom: 20px;
+}
+
+.teammate-comment:hover {
+    transform: translateY(-10px);
+}
+
+.teammate-comment p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.teammate-comment p::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: -5px;
+    font-size: 60px;
+    color: rgba(255, 255, 255, 0.2);
+    font-family: Georgia, serif;
+}
+
+.teammate-comment span {
+    display: block;
+    text-align: right;
+    color: white;
+    font-weight: bold;
+    font-style: italic;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Mobile S */
+@media (max-width: 320px) {
+    .name {
+        height: 180px;
+    }
+
+    .name h1 {
+        font-size: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        margin-bottom: 0.6rem;
+    }
+
+    h2::after {
+        width: 40px;
+        height: 2px;
+    }
+
+    .interests,
+    .works,
+    .goals,
+    .testimonials,
+    .gallery,
+    .contact {
+        padding: 18px 10px;
+        margin-bottom: 20px;
+    }
+
+    .interests .my-list li {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .goals-container {
+        grid-template-columns: 1fr;
+    }
+
+    .goal-icon {
+        font-size: 2rem;
+    }
+
+    .goal-item h3 {
+        font-size: 1.2rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 160px;
+    }
+
+    .comments {
+        padding: 18px 12px;
+    }
+
+    .comments p {
+        font-size: 0.85rem;
+    }
+
+    .comments p::before {
+        font-size: 35px;
+        top: -15px;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    textarea {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    button[type='submit'] {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+
+    .existing-comments h3 {
+        font-size: 1.2rem;
+    }
+
+    .teammate-comment {
+        padding: 18px 12px;
+    }
+
+    .teammate-comment p {
+        font-size: 0.85rem;
+    }
+
+    .teammate-comment p::before {
+        font-size: 35px;
+        top: -15px;
+    }
+
+    .teammate-comment span {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile M */
+@media (min-width: 321px) and (max-width: 375px) {
+    .name {
+        height: 200px;
+    }
+
+    .name h1 {
+        font-size: 1.7rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+        margin-bottom: 0.7rem;
+    }
+
+    h2::after {
+        width: 45px;
+        height: 2px;
+    }
+
+    .interests,
+    .works,
+    .goals,
+    .testimonials,
+    .gallery,
+    .contact {
+        padding: 20px 12px;
+        margin-bottom: 25px;
+    }
+
+    .interests .my-list li {
+        padding: 10px 15px;
+        font-size: 0.85rem;
+    }
+
+    .goals-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 170px;
+    }
+
+    .comments {
+        padding: 20px 15px;
+    }
+
+    .comments p {
+        font-size: 0.9rem;
+    }
+
+    .comments p::before {
+        font-size: 40px;
+        top: -15px;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    textarea {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+
+    button[type='submit'] {
+        padding: 12px 22px;
+        font-size: 15px;
+    }
+
+    .existing-comments h3 {
+        font-size: 1.3rem;
+    }
+
+    .teammate-comment {
+        padding: 20px 15px;
+    }
+
+    .teammate-comment p {
+        font-size: 0.9rem;
+    }
+
+    .teammate-comment p::before {
+        font-size: 40px;
+        top: -15px;
+    }
+}
+
+/* Mobile L */
+@media (min-width: 376px) and (max-width: 425px) {
+    .name {
+        height: 220px;
+    }
+
+    .name h1 {
+        font-size: 1.9rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-bottom: 0.8rem;
+    }
+
+    h2::after {
+        width: 50px;
+        height: 2px;
+    }
+
+    .interests,
+    .works,
+    .goals,
+    .testimonials,
+    .gallery,
+    .contact {
+        padding: 22px 15px;
+        margin-bottom: 28px;
+    }
+
+    .interests .my-list li {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+    }
+
+    .goals-container {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-item img {
+        height: 180px;
+    }
+
+    .comments {
+        padding: 22px 18px;
+    }
+
+    .comments p {
+        font-size: 0.95rem;
+    }
+
+    .comments p::before {
+        font-size: 45px;
+        top: -18px;
+    }
+
+    input[type='text'],
+    input[type='email'],
+    textarea {
+        padding: 10px 14px;
+        font-size: 15px;
+    }
+
+    button[type='submit'] {
+        padding: 12px 25px;
+        font-size: 16px;
+    }
+
+    .existing-comments h3 {
+        font-size: 1.4rem;
+    }
+
+    .teammate-comment {
+        padding: 22px 18px;
+    }
+
+    .teammate-comment p {
+        font-size: 0.95rem;
+    }
+
+    .teammate-comment p::before {
+        font-size: 45px;
+        top: -18px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .name {
+        height: 250px;
+    }
+
+    .name h1 {
+        font-size: 2.2rem;
+    }
+
+    h2 {
+        font-size: 1.7rem;
+    }
+
+    h2::after {
+        width: 60px;
+    }
+
+    .interests .my-list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .interests .my-list li {
+        width: 100%;
+        max-width: 300px;
+        text-align: center;
+    }
+
+    .works .my-list {
+        grid-template-columns: 1fr;
+    }
+
+    .goals-container {
+        grid-template-columns: 1fr;
+    }
+
+    .existing-comments h3 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .teammate-comment {
+        padding: 18px 15px;
+        margin-bottom: 15px;
+    }
+
+    .teammate-comment p {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+    }
+
+    .teammate-comment p::before {
+        font-size: 40px;
+        top: -15px;
+        left: -3px;
+    }
+
+    .teammate-comment span {
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .name h1 {
+        font-size: 2.5rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    .interests,
+    .works,
+    .goals,
+    .testimonials,
+    .gallery,
+    .contact {
+        padding: 25px 15px;
+        margin-bottom: 30px;
+    }
+
+    .testimonial-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .contact-form,
+    .goal-comment-form {
+        grid-template-columns: 1fr;
+    }
+
+    .form-group.full-width,
+    button[type='submit'] {
+        grid-column: 1;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .existing-comments {
+        padding-top: 25px;
+        margin-top: 30px;
+    }
+
+    .existing-comments h3 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    .teammate-comment {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+
+    .teammate-comment p {
+        font-size: 0.95rem;
+    }
+
+    .teammate-comment p::before {
+        font-size: 50px;
+        top: -18px;
+    }
+}
