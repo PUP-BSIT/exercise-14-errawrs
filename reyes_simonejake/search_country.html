@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Countries of the World</title>
+    <link rel="stylesheet" href="styles.css"/>
+  </head>
+  <body>
+    <div class="countries-app">
+      <div class="container">
+        <header class="header">
+          <h1>Countries of the World</h1>
+          <p>Explore countries and their details</p>
+        </header>
+
+        <div class="search-container">
+          <input
+                type="text"
+                id="country_search"
+                placeholder="Enter country name..."
+                onkeyup="handleSearchKeyPress(event)"/>
+          <button id="search_btn" onclick="searchCountry()">Search</button>
+        </div>
+
+        <div id="loading" class="loading">Loading...</div>
+        <div id="error" class="error"></div>
+        <div class="country-details" id="country_details">
+          <div class="country-header">
+            <img
+                id="country_flag"
+                class="country-flag"
+                src=""
+                alt="Country flag"/>
+            <div>
+              <h2 id="country_name"></h2>
+              <p id="country_native_name"></p>
+            </div>
+          </div>
+
+          <div class="country-info">
+            <div class="info-item">
+              <span class="label">Capital:</span>
+              <span id="country_capital"></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Region:</span>
+              <span id="country_region"></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Population:</span>
+              <span id="country_population"></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Languages:</span>
+              <span id="country_languages"></span>
+            </div>
+            <div class="info-item">
+              <span class="label">Currency:</span>
+              <span id="country_currency"></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="region-container" id="region_container">
+          <h2 id="region_title"></h2>
+          <div class="region-countries" id="region_countries"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
