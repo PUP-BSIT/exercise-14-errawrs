@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const searchInput = document.getElementById('country-search');
-    const searchButton = document.getElementById('search-button');
-    const countryDetails = document.getElementById('country-details');
-    const regionCountries = document.getElementById('region-countries');
-    const errorMessage = document.getElementById('error-message');
+    let searchInput = document.getElementById('country-search');
+    let searchButton = document.getElementById('search-button');
+    let countryDetails = document.getElementById('country-details');
+    let regionCountries = document.getElementById('region-countries');
+    let errorMessage = document.getElementById('error-message');
 
-    const countryFlag = document.getElementById('country-flag');
-    const countryName = document.getElementById('country-name');
-    const countryCapital = document.getElementById('country-capital');
-    const countryRegion = document.getElementById('country-region');
-    const countryPopulation = document.getElementById('country-population');
-    const countryLanguages = document.getElementById('country-languages');
-    const countryCurrency = document.getElementById('country-currency');
+    let countryFlag = document.getElementById('country-flag');
+    let countryName = document.getElementById('country-name');
+    let countryCapital = document.getElementById('country-capital');
+    let countryRegion = document.getElementById('country-region');
+    let countryPopulation = document.getElementById('country-population');
+    let countryLanguages = document.getElementById('country-languages');
+    let countryCurrency = document.getElementById('country-currency');
  
-    const countriesGrid = document.getElementById('countries-grid');
+    let countriesGrid = document.getElementById('countries-grid');
     
     searchButton.addEventListener('click', searchCountry);
     searchInput.addEventListener('keypress', (e) => {
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
     
     function searchCountry() {
-        const searchTerm = searchInput.value.trim();
+        let searchTerm = searchInput.value.trim();
         
         if (!searchTerm) {
             showError('Please enter a country name');
@@ -103,15 +103,15 @@ document.addEventListener('DOMContentLoaded', () => {
         
         countryPopulation.textContent = formatNumber(country.population);
         
-        const languages = country.languages ? 
+        let languages = country.languages ? 
               Object.values(country.languages).join(', ') : 'N/A';
         countryLanguages.textContent = languages;
         
         let currencyText = 'N/A';
         if (country.currencies) {
-            const currencyEntries = Object.entries(country.currencies);
+            let currencyEntries = Object.entries(country.currencies);
             if (currencyEntries.length > 0) {
-                const [code, details] = currencyEntries[0];
+                let [code, details] = currencyEntries[0];
                 currencyText = `${details.name} (${details.symbol || code})`;
             }
         }
@@ -130,18 +130,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             
-            const countryCard = document.createElement('div');
+            let countryCard = document.createElement('div');
             countryCard.className = 'country-card';
             
-            const flagImg = document.createElement('img');
+            let flagImg = document.createElement('img');
             flagImg.src = country.flags.png;
             flagImg.alt = country.flags.alt || 
                   `Flag of ${country.name.common}`;
             
-            const nameElement = document.createElement('h4');
+            let nameElement = document.createElement('h4');
             nameElement.textContent = country.name.common;
             
-            const populationElement = document.createElement('p');
+            let populationElement = document.createElement('p');
             populationElement.textContent = 
                   `Pop: ${formatNumber(country.population)}`;
             
