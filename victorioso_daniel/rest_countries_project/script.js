@@ -10,7 +10,7 @@ function getCountry() {
 	const keyword = document.querySelector("#keyword").value.toLowerCase();
 	if (!keyword.trim()) {
 		displayOutput(
-			`<p class="error-message">❌ Error: Please enter a country name.</p>`
+			`<p class="error-message">Error: Please enter a country name.</p>`
 		);
 		showResults();
 		return;
@@ -27,7 +27,7 @@ function getCountry() {
 		.then((jsonArray) => exactMatch(jsonArray, keyword))
 		.catch((error) => {
 			displayOutput(
-				`<p class="error-message">❌ Error: ${error.message}</p>`
+				`<p class="error-message">Error: ${error.message}</p>`
 			);
 		});
 }
@@ -79,7 +79,6 @@ function showCountry(match) {
 	img.classList.add("country-flag");
 	img.src = flag;
 	img.alt = `Flag of ${commonName}`;
-	img.width = 200;
 
 	const ul = document.createElement("ul");
 	ul.classList.add("country-details");
@@ -110,7 +109,7 @@ function showCountry(match) {
 	container.appendChild(ul);
 
 	const loadingP = document.createElement("p");
-	loadingP.textContent = `Loading other countries in ${region}...`;
+	loadingP.textContent = `Loading...`;
 	container.appendChild(loadingP);
 
 	fetch(`https://restcountries.com/v3.1/region/${region}`)
@@ -131,28 +130,27 @@ function showCountry(match) {
 				listContainer.id = "countries-list-container";
 				container.appendChild(listContainer);
 
-				showCountriesPage();
-			} else {
-				const p = document.createElement("p");
-				p.textContent = "No other countries found in the same region.";
-				container.appendChild(p);
+				return showCountriesPage();
 			}
+
+			const p = document.createElement("p");
+			p.textContent = "No other countries found in the same region.";
+			container.appendChild(p);
 		})
 		.catch((error) => {
+			const errorIntro = "Error fetching region countries:";
+
 			container.removeChild(loadingP);
 
 			const errorP = document.createElement("p");
 			errorP.classList.add("error-message");
-			errorP.textContent =
-				`⚠️ Error fetching region countries: ${error.message}`;
+			errorP.textContent = `${errorIntro} ${error.message}`;
 			container.appendChild(errorP);
 		});
 }
 
 function showCountriesPage() {
 	const container = document.querySelector("#countries-list-container");
-
-	const currentHeight = container ? container.offsetHeight : 0;
 
 	container.innerHTML = "";
 
@@ -192,10 +190,6 @@ function showCountriesPage() {
 	container.appendChild(otherCountriesList);
 
 	addPaginationControls(container);
-
-	if (currentHeight > 0) {
-		container.style.minHeight = `${currentHeight}px`;
-	}
 }
 
 function addPaginationControls(container) {
@@ -246,13 +240,17 @@ function displayOutput(html) {
 	container.innerHTML = html;
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-	const inputField = document.querySelector("#keyword");
-	if (inputField) {
-		inputField.addEventListener("keypress", function (e) {
-			if (e.key === "Enter") {
-				getCountry();
-			}
-		});
-	}
-});
+document.addEventListener(
+	"DOMContentLoaded",
+	(handleEnterKey = () => {
+		const inputField = document.querySelector("#keyword");
+		if (inputField) {
+			inputField.addEventListener("keypress", (event) => {
+				if (event.key === "Enter") {
+					getCountry();
+					inputField.value = "";
+				}
+			});
+		}
+	})
+);

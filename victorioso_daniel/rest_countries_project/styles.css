@@ -100,6 +100,7 @@ button:hover {
   border: 1px solid #dee2e6;
   margin-bottom: 1.5rem;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	width: 200px;
 }
 
 .country-details {
@@ -188,7 +189,7 @@ h3 {
 
 .pagination-button {
   padding: 0.5rem 1rem;
-  background-color: #e9ecef;
+  opacity: 0.8;
   border: 1px solid #ced4da;
   border-radius: 4px;
   cursor: pointer;
@@ -197,11 +198,11 @@ h3 {
 }
 
 .pagination-button:hover:not(:disabled) {
-  background-color: #dee2e6;
+  opacity: 0.6;
 }
 
 .pagination-button:disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
 }
 
