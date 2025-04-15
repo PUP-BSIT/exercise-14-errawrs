@@ -806,6 +806,40 @@ button[type='submit']:active {
     .teammate-comment span {
         font-size: 0.8rem;
     }
+
+    .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .search-container button {
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .country-flag {
+        width: 150px;
+    }
+    
+    .country-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .detail-item {
+        font-size: 0.9rem;
+    }
+    
+    .countries-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .country-card img {
+        width: 80px;
+    }
+    
+    .country-card h4 {
+        font-size: 1rem;
+    }
 }
 
 /* Mobile M */
@@ -896,6 +930,18 @@ button[type='submit']:active {
         font-size: 40px;
         top: -15px;
     }
+
+    .country-flag {
+        width: 180px;
+    }
+    
+    .countries-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .country-card img {
+        width: 90px;
+    }
 }
 
 /* Mobile L */
@@ -985,6 +1031,10 @@ button[type='submit']:active {
     .teammate-comment p::before {
         font-size: 45px;
         top: -18px;
+    }
+
+    .countries-grid {
+        grid-template-columns: 1fr;
     }
 }
 
