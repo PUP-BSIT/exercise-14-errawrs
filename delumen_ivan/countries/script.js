@@ -4,7 +4,7 @@ let regionCountries = document.querySelector("#region_countries");
 
 const searchCountry = () => {
     const keyword = countryInput.value.trim();
-    
+
     if (!keyword) {
         clearDisplay();
 
