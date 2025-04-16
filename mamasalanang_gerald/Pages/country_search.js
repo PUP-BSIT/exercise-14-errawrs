@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let searchInput = document.getElementById('country_search');
-    let searchButton = document.getElementById('search_button');
-    let countryDetails = document.getElementById('country_details');
-    let regionCountries = document.getElementById('region_countries');
-    let errorMessage = document.getElementById('error_message');
+    searchInput = document.getElementById('country_search');
+    searchButton = document.getElementById('search_button');
+    countryDetails = document.getElementById('country_details');
+    regionCountries = document.getElementById('region_countries');
+    errorMessage = document.getElementById('error_message');
 
-    let countryFlag = document.getElementById('country_flag');
-    let countryName = document.getElementById('country_name');
-    let countryCapital = document.getElementById('country_capital');
-    let countryRegion = document.getElementById('country_region');
-    let countryPopulation = document.getElementById('country_population');
-    let countryLanguages = document.getElementById('country_languages');
-    let countryCurrency = document.getElementById('country_currency');
+    countryFlag = document.getElementById('country_flag');
+    countryName = document.getElementById('country_name');
+    countryCapital = document.getElementById('country_capital');
+    countryRegion = document.getElementById('country_region');
+    countryPopulation = document.getElementById('country_population');
+    countryLanguages = document.getElementById('country_languages');
+    countryCurrency = document.getElementById('country_currency');
  
-    let countriesGrid = document.getElementById('countries_grid');
+    countriesGrid = document.getElementById('countries_grid');
     
     searchButton.addEventListener('click', searchCountry);
     searchInput.addEventListener('keypress', (e) => {
@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
             searchCountry();
         }
     });
+});
     
 function searchCountry() {
     let searchTerm = searchInput.value.trim();
@@ -176,4 +177,3 @@ function resetDisplay() {
     countryDetails.hidden = true;
     regionCountries.hidden = true;
 }
-});
