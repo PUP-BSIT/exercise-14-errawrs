@@ -1,0 +1,543 @@
+html,
+body {
+	width: 100%;
+	max-width: 100vw;
+	margin: 0 auto;
+	padding: 0;
+	overflow-x: hidden;
+	box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	background-color: #f9f9f9;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+.container {
+	width: 100%;
+	margin: 0 auto;
+	padding: 0.75rem;
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+.home-button {
+	position: fixed;
+	top: 1rem;
+	left: 1rem;
+	z-index: 1000;
+	padding: 0.5rem 1rem;
+	background-color: #0d6efd;
+	color: white;
+	border: none;
+	border-radius: 0.375rem;
+	cursor: pointer;
+	font-weight: 600;
+	transition: all 0.2s ease;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.home-button:hover {
+	background-color: #0b5ed7;
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-button a {
+	color: inherit;
+	text-decoration: none;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+
+.search-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 0.75rem;
+	margin: auto;
+	width: 100%;
+	text-align: center;
+	transition: margin 0.5s ease;
+}
+
+.results-shown .search-container {
+	margin: 1rem auto;
+}
+
+.search-title {
+	margin-bottom: 0.5rem;
+	color: #333;
+	font-size: 1.25em;
+	word-break: break-word;
+	width: 100%;
+}
+
+.search-form {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	gap: 0.5rem;
+}
+
+#search_bar {
+	width: 100%;
+	padding: 0.65em 0.5em;
+	border: 0.125em solid #dee2e6;
+	border-radius: 0.375em;
+	font-size: 0.9em;
+}
+
+button {
+	padding: 0.65em 0.75em;
+	background-color: #0d6efd;
+	color: white;
+	border: none;
+	border-radius: 0.375em;
+	cursor: pointer;
+	font-weight: 600;
+	transition: background-color 0.2s;
+}
+
+button:hover {
+	background-color: #0b5ed7;
+}
+
+.country-output {
+	width: 100%;
+	margin: 1rem auto;
+	padding: 1rem;
+	border-radius: 0.5em;
+	box-shadow: 0 0.125em 0.5em rgba(0, 0, 0, 0.1);
+	background-color: #ffffff;
+	display: none;
+}
+
+.results-shown .country-output {
+	display: block;
+}
+
+.country-name {
+	color: #212529;
+	font-size: 1.25em;
+	margin-bottom: 0.75rem;
+	border-bottom: 0.0625em solid #dee2e6;
+	padding-bottom: 0.5rem;
+	word-break: break-word;
+}
+
+.country-flag {
+	max-width: 100%;
+	height: auto;
+	border: 0.0625em solid #dee2e6;
+	margin-bottom: 1rem;
+	box-shadow: 0 0.125em 0.25em rgba(0, 0, 0, 0.1);
+	width: 50%;
+}
+
+.country-details {
+	list-style-type: none;
+	padding: 0;
+	margin-bottom: 1.5rem;
+	width: 100%;
+}
+
+.country-details li {
+	padding: 0.5rem 0;
+	border-bottom: 0.0625em solid #dee2e6;
+	font-size: 0.95em;
+	word-break: break-word;
+}
+
+h3 {
+	color: #495057;
+	margin-top: 1.5rem;
+	margin-bottom: 0.75rem;
+	font-size: 1.1em;
+}
+
+#countries-list-container {
+	transition: height 0.3s ease;
+	position: relative;
+	width: 100%;
+}
+
+.other-countries-list {
+	display: grid;
+	grid-template-columns: 1fr;
+	gap: 0.75rem;
+	list-style-type: none;
+	padding: 0;
+	width: 100%;
+}
+
+.other-country {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0.75rem;
+	background-color: #f8f9fa;
+	border-radius: 0.375em;
+	transition: transform 0.2s, box-shadow 0.2s;
+	cursor: pointer;
+	text-align: center;
+}
+
+.other-country:hover {
+	transform: translateY(-0.1875em);
+	box-shadow: 0 0.1875em 0.625em rgba(0, 0, 0, 0.1);
+}
+
+.other-country-flag {
+	width: 70%;
+	max-width: 3.125em;
+	height: auto;
+	object-fit: cover;
+	border: 0.0625em solid #dee2e6;
+	margin-bottom: 0.5rem;
+}
+
+.other-country-name {
+	font-size: 0.85em;
+	color: #495057;
+	margin: 0;
+	word-break: break-word;
+}
+
+.error-message {
+	color: #dc3545;
+	font-weight: 600;
+	padding: 0.75rem;
+	background-color: #f8d7da;
+	border-radius: 0.375em;
+	font-size: 0.9em;
+	width: 100%;
+}
+
+.pagination-controls {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 1.25rem;
+	padding-top: 0.75rem;
+	border-top: 0.0625em solid #dee2e6;
+	width: 100%;
+}
+
+.pagination-button {
+	padding: 0.4em 0.75em;
+	opacity: 0.8;
+	border: 0.0625em solid #ced4da;
+	border-radius: 0.25em;
+	cursor: pointer;
+	font-size: 0.8em;
+	transition: all 0.2s;
+}
+
+.pagination-button:hover:not(:disabled) {
+	opacity: 0.8;
+}
+
+.pagination-button:disabled {
+	opacity: 0.2;
+	cursor: not-allowed;
+}
+
+.pagination-info {
+	color: #6c757d;
+	font-size: 0.8em;
+}
+
+@media (max-width: 320px) {
+	.home-button {
+		font-size: 0.75rem;
+		padding: 0.4rem 0.8rem;
+		top: 0.75rem;
+		left: 0.75rem;
+	}
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+	.search-title {
+		font-size: 1.4em;
+	}
+
+	.country-name {
+		font-size: 1.35em;
+	}
+
+	#search_bar,
+	button {
+		padding: 0.7em 0.75em;
+	}
+
+	.country-flag {
+		width: 45%;
+	}
+
+	.home-button {
+		font-size: 0.8rem;
+		padding: 0.45rem 0.9rem;
+		top: 0.8rem;
+		left: 0.8rem;
+	}
+}
+
+@media (min-width: 376px) and (max-width: 425px) {
+	.container {
+		padding: 0.85rem;
+	}
+
+	.search-title {
+		font-size: 1.5em;
+	}
+
+	.country-name {
+		font-size: 1.4em;
+	}
+
+	#search_bar,
+	button {
+		padding: 0.7em 0.85em;
+		font-size: 1em;
+	}
+
+	.country-flag {
+		width: 40%;
+	}
+
+	.country-details li {
+		font-size: 1em;
+	}
+
+	.other-countries-list {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 0.85rem;
+	}
+
+	.home-button {
+		font-size: 0.85rem;
+		padding: 0.5rem 1rem;
+		top: 0.85rem;
+		left: 0.85rem;
+	}
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+	.container {
+		padding: 1.25rem;
+		width: 100%;
+	}
+
+	.search-title {
+		font-size: 1.8em;
+		margin-bottom: 0.75rem;
+	}
+
+	.search-form {
+		max-width: 100%;
+	}
+
+	#search_bar,
+	button {
+		padding: 0.75em 1em;
+	}
+
+	.country-output {
+		padding: 1.5rem;
+		margin: 1.5rem auto;
+		max-width: 100%;
+	}
+
+	.country-name {
+		font-size: 1.6em;
+	}
+
+	.country-flag {
+		width: 35%;
+	}
+
+	.country-details li {
+		padding: 0.65rem 0;
+		font-size: 1.05em;
+	}
+
+	.other-countries-list {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 1rem;
+	}
+
+	h3 {
+		font-size: 1.3em;
+	}
+
+	.search-form {
+		flex-direction: row;
+	}
+
+	button {
+		width: auto;
+	}
+
+	.pagination-button {
+		padding: 0.5em 1em;
+		font-size: 0.9em;
+	}
+
+	.home-button {
+		font-size: 0.9rem;
+		padding: 0.55rem 1.1rem;
+		top: 1rem;
+		left: 1rem;
+	}
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+	.container {
+		max-width: 100%;
+		padding: 1.5rem;
+	}
+
+	.search-container {
+		max-width: 100%;
+	}
+
+	.search-title {
+		font-size: 2.2em;
+		margin-bottom: 1rem;
+	}
+
+	.search-form {
+		flex-direction: row;
+	}
+
+	#search_bar {
+		flex: 1;
+	}
+
+	button {
+		width: auto;
+		padding: 0.75em 1.25em;
+	}
+
+	.country-output {
+		padding: 2rem;
+		margin: 2rem auto;
+		max-width: 100%;
+	}
+
+	.country-name {
+		font-size: 1.8em;
+	}
+
+	.country-flag {
+		width: 30%;
+	}
+
+	.country-details li {
+		font-size: 1.1em;
+	}
+
+	.other-countries-list {
+		grid-template-columns: repeat(4, 1fr);
+	}
+
+	.home-button {
+		font-size: 0.95rem;
+		padding: 0.6rem 1.2rem;
+		top: 1.25rem;
+		left: 1.25rem;
+	}
+}
+
+@media (min-width: 1025px) {
+	.container {
+		max-width: 100%;
+		padding: 2rem;
+	}
+
+	.search-container {
+		max-width: 100%;
+	}
+
+	.search-title {
+		font-size: 2.5em;
+	}
+
+	.search-form {
+		flex-direction: row;
+	}
+
+	#search_bar {
+		flex: 1;
+		padding: 0.75em 1em;
+	}
+
+	button {
+		width: auto;
+		padding: 0.75em 1.5em;
+	}
+
+	.country-output {
+		padding: 2rem;
+		margin: 2rem auto;
+		max-width: 100%;
+	}
+
+	.country-name {
+		font-size: 2em;
+		margin-bottom: 1rem;
+		padding-bottom: 0.5rem;
+	}
+
+	.country-flag {
+		max-width: 25%;
+		margin-bottom: 1.5rem;
+	}
+
+	.country-details li {
+		padding: 0.75rem 0;
+		font-size: 1.1em;
+	}
+
+	.other-countries-list {
+		grid-template-columns: repeat(5, 1fr);
+		gap: 1rem;
+	}
+
+	.other-country-flag {
+		width: 60%;
+	}
+
+	.other-country-name {
+		font-size: 0.9em;
+	}
+
+	h3 {
+		font-size: 1.5em;
+		margin-top: 2rem;
+	}
+
+	.pagination-button {
+		padding: 0.5em 1em;
+		font-size: 0.9em;
+	}
+
+	.home-button {
+		font-size: 1rem;
+		padding: 0.65rem 1.3rem;
+		top: 1.5rem;
+		left: 1.5rem;
+	}
+}
