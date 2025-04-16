@@ -6,7 +6,7 @@ let selectOrder = document.getElementById('select_order');
 
 function validateForm() {
     submitButton.disabled =
-        !nameInput.value.trim() || !commentTextarea.value.trim();
+          !nameInput.value.trim() || !commentTextarea.value.trim();
 }
 
 function handleSubmit() {
