@@ -10,16 +10,19 @@
         <div class="countries-app">
             <div class="container">
                 <header class="header">
-                    <h1>Diffrent Countries in the World</h1>
-                    <p>Dive into country insights</p>
+                    <h1>Explore Countries</h1>
+                    <p>Enter a country’s name to find key facts, 
+                        and then explore related countries in the 
+                        same region for a deeper global connection.
+                    </p>
                 </header>
 
                 <div class="search-container">
                     <input
-                        type="text"
-                        id="country_search"
-                        placeholder="Enter country name..."
-                        onkeyup="handleSearchKeyPress(event)"/>
+                          type="text"
+                          id="country_search"
+                          placeholder="Enter country name..."
+                          onkeyup="handleSearchKeyPress(event)"/>
                     <button id="search_btn" onclick="searchCountry()">
                         Search
                     </button>
@@ -27,13 +30,13 @@
 
                 <div id="loading" class="loading">Loading...</div>
                 <div id="error" class="error"></div>
+
                 <div class="country-details" id="country_details">
                     <div class="country-header">
                         <img
-                            id="country_flag"
-                            class="country-flag"
-                            src=""
-                            alt="Country flag"/>
+                              id="country_flag"
+                              class="country-flag"
+                              alt="Country flag"/>
                         <div>
                             <h2 id="country_name"></h2>
                             <p id="country_native_name"></p>
@@ -67,6 +70,11 @@
                 <div class="region-container" id="region_container">
                     <h2 id="region_title"></h2>
                     <div class="region-countries" id="region_countries"></div>
+                    <div class="pagination-controls">
+                        <button id="prev_page">Previous</button>
+                        <span id="page_info">Page 1</span>
+                        <button id="next_page">Next</button>
+                    </div>
                 </div>
             </div>
         </div>
