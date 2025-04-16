@@ -95,15 +95,15 @@ function displayCountryDetails(country) {
         
     countryName.textContent = country.name.common;
         
-    countryCapital.textContent = 
+    countryCapital.textContent =
           country.capital ? country.capital.join(', ') : 'N/A';
         
-    countryRegion.textContent = 
+    countryRegion.textContent =
           `${country.region} (${country.subregion || ''})`;
         
     countryPopulation.textContent = formatNumber(country.population);
         
-    let languages = country.languages ? 
+    let languages = country.languages ?
           Object.values(country.languages).join(', ') : 'N/A';
     countryLanguages.textContent = languages;
         
@@ -142,7 +142,7 @@ function displayRegionCountries(countries) {
         nameElement.textContent = country.name.common;
             
         let populationElement = document.createElement('p');
-        populationElement.textContent = 
+        populationElement.textContent =
               `Pop: ${formatNumber(country.population)}`;
             
         countryCard.appendChild(flagImg);
