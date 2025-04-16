@@ -66,7 +66,7 @@ function fetchCountryByName(countryName) {
             }
             return data[0];
         });
-    }
+}
     
 function fetchCountryByCode(code) {
     return fetch(`https://restcountries.com/v3.1/alpha/${code}`)
@@ -82,7 +82,7 @@ function fetchCountryByCode(code) {
             }
             return data;
         });
-    }
+}
     
 function fetchRegionCountries(region) {
     return fetch(`https://restcountries.com/v3.1/region/${region}`)
