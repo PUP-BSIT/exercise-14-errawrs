@@ -1,7 +1,6 @@
 let countryInput = document.querySelector("#country_input");
 let countryDetails = document.querySelector("#country_details");
 let regionCountries = document.querySelector("#region_countries");
-let regionList = document.querySelector("#region_list");
 
 const keyword = () => {
     const keyword = countryInput.value.trim();
@@ -185,7 +184,7 @@ const displayRegionCountries = (countries) => {
 
         countryElement.onclick = () => {
             countryInput.value = countryName;
-            searchCountry();
+            keyword();
         };
 
         newRegionList.appendChild(countryElement);
