@@ -2,12 +2,29 @@ let allCountriesInRegion = [];
 let currentPage = 0;
 const countriesPerPage = 10;
 
+document.addEventListener(
+	"DOMContentLoaded",
+	(handleEnterKey = () => {
+		const inputField = document.querySelector("#search_bar");
+		if (inputField) {
+			inputField.addEventListener("keypress", (event) => {
+				if (event.key === "Enter") {
+					getCountry();
+					inputField.value = "";
+				}
+			});
+		}
+	})
+);
+
 function showResults() {
 	document.querySelector(".container").classList.add("results-shown");
 }
 
 function getCountry() {
-	const keyword = document.querySelector("#keyword").value.toLowerCase();
+	const searchBar = document.querySelector("#search_bar");
+	const keyword = searchBar.value.toLowerCase();
+
 	if (!keyword.trim()) {
 		displayOutput(
 			`<p class="error-message">Error: Please enter a country name.</p>`
@@ -18,6 +35,7 @@ function getCountry() {
 
 	displayOutput(`<p>Loading country information...</p>`);
 	showResults();
+	searchBar.value = "";
 
 	fetch(`https://restcountries.com/v3.1/name/${keyword}`)
 		.then((response) => {
@@ -73,7 +91,7 @@ function showCountry(match) {
 
 	const h2 = document.createElement("h2");
 	h2.classList.add("country-name");
-	h2.textContent = `${commonName} (${officialName})`;
+	h2.textContent = `${commonName}`;
 
 	const img = document.createElement("img");
 	img.classList.add("country-flag");
@@ -82,6 +100,9 @@ function showCountry(match) {
 
 	const ul = document.createElement("ul");
 	ul.classList.add("country-details");
+
+	const official = document.createElement("li");
+	official.textContent = `Official Name: ${officialName}`;
 
 	const capitalLi = document.createElement("li");
 	capitalLi.textContent = `Capital: ${capitalCity}`;
@@ -98,6 +119,7 @@ function showCountry(match) {
 	const languagesLi = document.createElement("li");
 	languagesLi.textContent = `Languages: ${languageList}`;
 
+	ul.appendChild(official);
 	ul.appendChild(capitalLi);
 	ul.appendChild(regionLi);
 	ul.appendChild(populationLi);
@@ -169,7 +191,7 @@ function showCountriesPage() {
 		const li = document.createElement("li");
 		li.classList.add("other-country");
 		li.addEventListener("click", () => {
-			document.querySelector("#keyword").value = country.name.common;
+			document.querySelector("#search_bar").value = country.name.common;
 			getCountry();
 		});
 
@@ -239,18 +261,3 @@ function displayOutput(html) {
 	const container = document.querySelector(".country-output");
 	container.innerHTML = html;
 }
-
-document.addEventListener(
-	"DOMContentLoaded",
-	(handleEnterKey = () => {
-		const inputField = document.querySelector("#keyword");
-		if (inputField) {
-			inputField.addEventListener("keypress", (event) => {
-				if (event.key === "Enter") {
-					getCountry();
-					inputField.value = "";
-				}
-			});
-		}
-	})
-);
