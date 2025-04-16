@@ -7,7 +7,6 @@ function handleSearchKeyPress(event) {
         searchCountry();
     }
 }
-
 function searchCountry() {
     const searchInput = document.getElementById('country_search');
     const countryName = searchInput.value.trim();
@@ -18,7 +17,6 @@ function searchCountry() {
     }
     showLoading();
     clearError();
-
     fetch(
         `https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}
             ?fullText=true`)
@@ -26,7 +24,7 @@ function searchCountry() {
             if (response.ok) return response.json();
             return fetch(
                 `https://restcountries.com/v3.1/name/${encodeURIComponent
-                    (countryName)}`
+                      (countryName)}`
             ).then((res) => {
                 if (!res.ok) throw new Error(`Status: ${res.status}`);
                 return res.json();
@@ -40,7 +38,7 @@ function searchCountry() {
             if (capitalizedName !== countryName) {
                 fetch(
                     `https://restcountries.com/v3.1/name/${encodeURIComponent
-                        (capitalizedName)}`
+                          (capitalizedName)}`
                 )
                     .then((res) => {
                         if (!res.ok) throw new Error(`Status: ${res.status}`);
@@ -120,7 +118,7 @@ function handleCountryData(data) {
 function displayCountryDetails(country) {
     document.getElementById('country_flag').src = country.flags.png || '';
     document.getElementById('country_name').textContent =
-        country.name.common || '';
+          country.name.common || '';
     document.getElementById('country_flag').alt = `${country.name.common} flag`;
 
     let nativeName = '';
