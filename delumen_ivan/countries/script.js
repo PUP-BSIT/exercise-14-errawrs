@@ -7,7 +7,13 @@ const searchCountry = () => {
     const keyword = countryInput.value.trim();
 
     if (!keyword) {
-        alert("Please enter a country name");
+        clearDisplay();
+
+        const errorDiv = document.createElement("div");
+        errorDiv.className = "error";
+        errorDiv.textContent = "Error: Please enter a country name";
+
+        countryDetails.appendChild(errorDiv);
         return;
     }
 
@@ -32,13 +38,19 @@ const searchCountry = () => {
             displayRegionCountries(regionData);
         })
         .catch((error) => {
+            clearDisplay();
+
             const errorDiv = document.createElement("div");
             errorDiv.className = "error";
             errorDiv.textContent = `Error: ${error.message}`;
 
-            countryDetails.innerHTML = "";
             countryDetails.appendChild(errorDiv);
         });
+};
+
+const clearDisplay = () => {
+    countryDetails.innerHTML = "";
+    regionCountries.innerHTML = "";
 };
 
 const findBestMatch = (countries, searchTerm) => {
@@ -47,14 +59,12 @@ const findBestMatch = (countries, searchTerm) => {
     const exactMatch = countries.find(
         (country) => country.name.common.toLowerCase() === searchTerm
     );
-    if (exactMatch) 
-        return exactMatch;
+    if (exactMatch) return exactMatch;
 
     const startsWithMatch = countries.find((country) =>
         country.name.common.toLowerCase().startsWith(searchTerm)
     );
-    if (startsWithMatch) 
-        return startsWithMatch;
+    if (startsWithMatch) return startsWithMatch;
 
     return countries[0];
 };

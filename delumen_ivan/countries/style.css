@@ -44,6 +44,11 @@ button {
   padding: 20px;
 }
 
+.error {
+  display: flex;
+  justify-content: center;
+}
+
 .country-info {
   display: flex;
   justify-content: center;
