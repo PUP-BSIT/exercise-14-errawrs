@@ -1,7 +1,7 @@
-const countryInput = document.querySelector("#countryInput");
-const countryDetails = document.querySelector("#countryDetails");
-const regionCountries = document.querySelector("#regionCountries");
-const regionList = document.querySelector("#regionList");
+const countryInput = document.querySelector("#country_input");
+const countryDetails = document.querySelector("#country_details");
+const regionCountries = document.querySelector("#region_countries");
+const regionList = document.querySelector("#region_list");
 
 const searchCountry = () => {
     const keyword = countryInput.value.trim();
@@ -152,7 +152,6 @@ const displayRegionCountries = (countries) => {
     regionCountries.appendChild(regionHeader);
 
     const newRegionList = document.createElement("div");
-    newRegionList.id = "regionList";
     newRegionList.className = "region-list";
     regionCountries.appendChild(newRegionList);
 
