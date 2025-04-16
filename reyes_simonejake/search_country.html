@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Countries of the World</title>
-        <link rel="stylesheet" href="styles.css" />
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Countries</title>
+        <link rel="stylesheet" href="styles.css"/>
     </head>
     <body>
         <div class="countries-app">
             <div class="container">
                 <header class="header">
-                    <h1>Countries of the World</h1>
-                    <p>Explore countries and their details</p>
+                    <h1>Diffrent Countries in the World</h1>
+                    <p>Dive into country insights</p>
                 </header>
 
                 <div class="search-container">
@@ -19,8 +19,7 @@
                         type="text"
                         id="country_search"
                         placeholder="Enter country name..."
-                        onkeyup="handleSearchKeyPress(event)"
-                    />
+                        onkeyup="handleSearchKeyPress(event)"/>
                     <button id="search_btn" onclick="searchCountry()">
                         Search
                     </button>
@@ -34,8 +33,7 @@
                             id="country_flag"
                             class="country-flag"
                             src=""
-                            alt="Country flag"
-                        />
+                            alt="Country flag"/>
                         <div>
                             <h2 id="country_name"></h2>
                             <p id="country_native_name"></p>

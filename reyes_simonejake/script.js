@@ -239,8 +239,7 @@ function displayRegionCountries(region, countries) {
     const currentCountryName =
         document.getElementById('country_name').textContent;
     const otherCountries = countries.filter(
-        (country) => country.name.common !== currentCountryName
-    );
+        (country) => country.name.common !== currentCountryName);
 
     otherCountries.slice(0, 8).forEach((country) => {
         const card = createCountryCard(country);
