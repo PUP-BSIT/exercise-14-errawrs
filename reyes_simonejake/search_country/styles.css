@@ -89,8 +89,17 @@
     display: none;
 }
 
+.countries-app .loading.visible {
+    display: block;
+}
+
 .countries-app .error {
     color: #e41b1b;
+    display: none;
+}
+
+.countries-app .error.visible {
+    display: block;
 }
 
 .countries-app .country-details {
@@ -100,6 +109,10 @@
     margin-bottom: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     display: none;
+}
+
+.countries-app .country-details.visible {
+    display: block;
 }
 
 .countries-app .country-header {
@@ -139,6 +152,10 @@
     border-radius: 8px;
     padding: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.countries-app .region-container.visible {
+    display: block;
 }
 
 .countries-app .region-container h2 {

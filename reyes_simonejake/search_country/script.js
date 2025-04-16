@@ -20,10 +20,8 @@ function searchCountry() {
     clearError();
 
     fetch(
-        `https://restcountries.com/v3.1/name/${encodeURIComponent
-            (countryName)}
-            ?fullText=true`
-    )
+        `https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}
+            ?fullText=true`)
         .then((response) => {
             if (response.ok) return response.json();
             return fetch(
@@ -42,7 +40,8 @@ function searchCountry() {
             if (capitalizedName !== countryName) {
                 fetch(
                     `https://restcountries.com/v3.1/name/${encodeURIComponent
-                        (capitalizedName)}`)
+                        (capitalizedName)}`
+                )
                     .then((res) => {
                         if (!res.ok) throw new Error(`Status: ${res.status}`);
                         return res.json();
@@ -65,8 +64,7 @@ function matchCountry(countries, searchTerm) {
         if (name.startsWith(searchLower)) score += 50;
         if (
             name.includes(' ' + searchLower) ||
-            name.includes(searchLower + ' ')
-        )
+            name.includes(searchLower + ' '))
             score += 25;
         if (name.includes(searchLower)) score += 10;
 
@@ -132,11 +130,11 @@ function displayCountryDetails(country) {
     }
     document.getElementById('country_native_name').textContent = nativeName;
     document.getElementById('country_capital').textContent =
-        country.capital?.[0] || 'N/A';
+          country.capital?.[0] || 'N/A';
     document.getElementById('country_region').textContent =
-        country.region || 'N/A';
+          country.region || 'N/A';
     document.getElementById('country_population').textContent =
-        formatNumber(country.population) || 'N/A';
+          formatNumber(country.population) || 'N/A';
 
     let languages = 'N/A';
     if (country.languages) {
@@ -151,15 +149,14 @@ function displayCountryDetails(country) {
         currency = `${curr.name} (${curr.symbol || ''})`;
     }
     document.getElementById('country_currency').textContent = currency;
-
-    document.getElementById('country_details').style.display = 'block';
+    document.getElementById('country_details').classList.add('visible');
 }
 
 function displayRegionCountries(region, countries, currentCountryName) {
     const regionTitle = document.getElementById('region_title');
     const regionContainer = document.getElementById('region_container');
     regionTitle.textContent = `Other Countries in ${region}`;
-    regionContainer.style.display = 'block';
+    regionContainer.classList.add('visible');
 
     paginatedCountries = countries
         .filter((c) => c.name.common !== currentCountryName)
@@ -247,23 +244,25 @@ function formatNumber(num) {
 }
 
 function showLoading() {
-    document.getElementById('loading').style.display = 'block';
-    document.getElementById('country_details').style.display = 'none';
-    document.getElementById('region_container').style.display = 'none';
+    const loading = document.getElementById('loading');
+    loading.classList.add('visible');
+    document.getElementById('country_details').classList.remove('visible');
+    document.getElementById('region_container').classList.remove('visible');
 }
 
 function hideLoading() {
-    document.getElementById('loading').style.display = 'none';
+    const loading = document.getElementById('loading');
+    loading.classList.remove('visible');
 }
 
 function showError(message) {
     const error = document.getElementById('error');
     error.textContent = message;
-    error.style.display = 'block';
+    error.classList.add('visible');
 }
 
 function clearError() {
     const error = document.getElementById('error');
     error.textContent = '';
-    error.style.display = 'none';
+    error.classList.remove('visible');
 }
