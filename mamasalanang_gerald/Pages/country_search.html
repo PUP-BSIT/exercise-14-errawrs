@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Countries of the World</title>
+        <link rel="stylesheet" href="../styles.css">
+        <link rel="stylesheet" href="countries.css">
+        <link rel="icon" type="image/png" href="../Assets/Images/icon.jpg" />
+    </head>
+
+    <body>
+        <div class="name">
+            <h1>Countries of the World</h1>
+        </div>
+
+        <div class="container">
+            <div class="search-container">
+                <input type="text" id="country_search" 
+                      placeholder="Enter country name...">
+                <button id="search_button">Search</button>
+            </div>
+            
+            <div class="error-message" id="error_message"></div>
+
+            <div class="country-details" id="country_details">
+                <div class="country-info">
+                    <img class="country-flag" 
+                          id="country_flag" src="">
+                    <h2 id="country_name"></h2>
+                    <div class="detail-item">
+                          <strong>Capital:</strong> 
+                          <span id="country_capital"></span>
+                    </div>
+                    <div class="detail-item">
+                          <strong>Region:</strong> 
+                          <span id="country_region"></span>
+                    </div>
+                    <div class="detail-item">
+                          <strong>Population:</strong> 
+                          <span id="country_population"></span>
+                    </div>
+                    <div class="detail-item">
+                          <strong>Languages:</strong> 
+                          <span id="country_languages"></span>
+                    </div>
+                    <div class="detail-item">
+                          <strong>Currency:</strong> 
+                          <span id="country_currency"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="region-countries" id="region_countries">
+                <h3>Other Countries in the Region</h3>
+                <div class="countries-grid" id="countries_grid"></div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Gerald Mamasalanang DIT 2-1.
+                  <a href="../index.html">Back to Home</a></p>
+        </div>
+
+        <script src="country_search.js"></script>
+    </body>
+</html>

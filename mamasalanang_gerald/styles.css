@@ -537,6 +537,167 @@ button[type='submit']:active {
     font-style: italic;
 }
 
+.search-container {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    max-width: 600px;
+}
+
+.search-container input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    flex-grow: 1;
+}
+
+.search-container input:focus {
+    outline: none;
+    border-color: #d13abd;
+    box-shadow: 0 0 0 3px rgba(209, 58, 189, 0.1);
+}
+
+.search-container button {
+    background-image: linear-gradient(to right, #eebd89, #d13abd);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(209, 58, 189, 0.3);
+}
+
+.search-container button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 15px rgba(209, 58, 189, 0.4);
+}
+
+.search-container button:active {
+    transform: translateY(1px);
+    box-shadow: 0 3px 8px rgba(209, 58, 189, 0.4);
+}
+
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    margin: 20px auto;
+    max-width: 600px;
+    font-weight: bold;
+}
+
+.country-details {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    margin: 30px auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+.country-flag {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+}
+
+.country-info h2 {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #555;
+}
+
+.detail-item strong {
+    color: #d13abd;
+    margin-right: 5px;
+}
+
+.region-countries {
+    background-image: linear-gradient(135deg, #eebd89, #d13abd);
+    color: white;
+    padding: 40px 20px;
+    margin: 40px 0;
+    border-radius: 10px;
+}
+
+.region-countries h3 {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+    text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+}
+
+.countries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.country-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+    text-align: center;
+    cursor: pointer;
+}
+
+.country-card:hover {
+    transform: translateY(-10px);
+}
+
+.country-card img {
+    width: 100px;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+.country-card h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.country-card p {
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.footer a {
+    color: #eebd89;
+    text-decoration: none;
+    margin-left: 10px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #d13abd;
+    text-decoration: underline;
+}
+
 /* Footer */
 .footer {
     background-color: #333;
@@ -645,6 +806,40 @@ button[type='submit']:active {
     .teammate-comment span {
         font-size: 0.8rem;
     }
+
+    .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .search-container button {
+        width: 100%;
+        margin-top: 5px;
+    }
+    
+    .country-flag {
+        width: 150px;
+    }
+    
+    .country-info h2 {
+        font-size: 1.8rem;
+    }
+    
+    .detail-item {
+        font-size: 0.9rem;
+    }
+    
+    .countries-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .country-card img {
+        width: 80px;
+    }
+    
+    .country-card h4 {
+        font-size: 1rem;
+    }
 }
 
 /* Mobile M */
@@ -735,6 +930,18 @@ button[type='submit']:active {
         font-size: 40px;
         top: -15px;
     }
+
+    .country-flag {
+        width: 180px;
+    }
+    
+    .countries-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .country-card img {
+        width: 90px;
+    }
 }
 
 /* Mobile L */
@@ -824,6 +1031,10 @@ button[type='submit']:active {
     .teammate-comment p::before {
         font-size: 45px;
         top: -18px;
+    }
+
+    .countries-grid {
+        grid-template-columns: 1fr;
     }
 }
 
