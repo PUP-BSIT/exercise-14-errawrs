@@ -4,13 +4,8 @@
     --border-color: #b0b0b0;
     --text-secondary: #707070;
     --text-primary: #333333;
-<<<<<<< HEAD
-    --font-primary: "Poppins", sans-serif;
-    --font-secondary: "Playfair Display", serif;
-=======
     --font-primary: 'Poppins', sans-serif;
     --font-secondary: 'Playfair Display', serif;
->>>>>>> main
 }
 
 body {
@@ -644,8 +639,6 @@ p {
     text-align: center;
 }
 
-<<<<<<< HEAD
-=======
 /* Countries of the World - Specific Styles */
 .countries-app * {
     box-sizing: border-box;
@@ -832,7 +825,6 @@ p {
     color: #555;
 }
 
->>>>>>> main
 /* Mobile Small */
 @media (max-width: 320px) {
     /* Nav Section */
@@ -1148,8 +1140,6 @@ p {
     .comment-container {
         flex-direction: column;
     }
-<<<<<<< HEAD
-=======
 
     /*Search Country*/
     .countries-app .container {
@@ -1178,7 +1168,6 @@ p {
         font-size: 14px;
         min-width: 80px;
     }
->>>>>>> main
 }
 
 /* Mobile Medium */
@@ -1455,8 +1444,6 @@ p {
     .comment-container {
         flex-direction: column;
     }
-<<<<<<< HEAD
-=======
 
     /*Search Country*/
     .countries-app .container {
@@ -1485,7 +1472,6 @@ p {
         font-size: 14px;
         min-width: 80px;
     }
->>>>>>> main
 }
 
 /* Mobile Large */
@@ -1730,8 +1716,6 @@ p {
     .comment-container {
         flex-direction: column;
     }
-<<<<<<< HEAD
-=======
 
     /*Search Country*/
     .countries-app .container {
@@ -1769,7 +1753,6 @@ p {
     .countries-app .search-container button {
         padding: 15px 30px;
     }
->>>>>>> main
 }
 
 /* Tablet */
@@ -2016,8 +1999,6 @@ p {
     .comment-container {
         flex-direction: column;
     }
-<<<<<<< HEAD
-=======
 
     /*Search Country*/
     .countries-app .container {
@@ -2076,7 +2057,6 @@ p {
     .countries-app .search-container button {
         padding: 15px 30px;
     }
->>>>>>> main
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -2322,8 +2302,6 @@ p {
     .comment-container {
         flex-direction: column;
     }
-<<<<<<< HEAD
-=======
 
     /*Search Country*/
     .countries-app .container {
@@ -2400,5 +2378,4 @@ p {
     .countries-app .region-countries {
         grid-template-columns: repeat(4, 1fr);
     }
->>>>>>> main
 }
