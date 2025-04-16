@@ -17,14 +17,11 @@ function searchCountry() {
     }
     showLoading();
     clearError();
-    fetch(
-        `https://restcountries.com/v3.1/name/${encodeURIComponent(countryName)}
+    fetch(`https://restcountries.com/v3.1/name/${countryName}
             ?fullText=true`)
         .then((response) => {
             if (response.ok) return response.json();
-            return fetch(
-                `https://restcountries.com/v3.1/name/${encodeURIComponent
-                      (countryName)}`
+            return fetch(`https://restcountries.com/v3.1/name/${countryName}`
             ).then((res) => {
                 if (!res.ok) throw new Error(`Status: ${res.status}`);
                 return res.json();
@@ -36,9 +33,7 @@ function searchCountry() {
             const capitalizedName =
                 countryName.charAt(0).toUpperCase() + countryName.slice(1);
             if (capitalizedName !== countryName) {
-                fetch(
-                    `https://restcountries.com/v3.1/name/${encodeURIComponent
-                          (capitalizedName)}`
+                fetch(`https://restcountries.com/v3.1/name/${capitalizedName}`
                 )
                     .then((res) => {
                         if (!res.ok) throw new Error(`Status: ${res.status}`);
@@ -106,7 +101,7 @@ function handleCountryData(data) {
         return;
     }
 
-    fetch(`https://restcountries.com/v3.1/region/${encodeURIComponent(region)}`)
+    fetch(`https://restcountries.com/v3.1/region/${region}`)
         .then((res) => res.json())
         .then((regionData) => {
             displayRegionCountries(region, regionData, country.name.common);
@@ -119,7 +114,8 @@ function displayCountryDetails(country) {
     document.getElementById('country_flag').src = country.flags.png || '';
     document.getElementById('country_name').textContent =
           country.name.common || '';
-    document.getElementById('country_flag').alt = `${country.name.common} flag`;
+    document.getElementById('country_flag')
+          .alt = `${country.name.common} flag`;
 
     let nativeName = '';
     if (country.name.nativeName) {
