@@ -1,0 +1,621 @@
+.countries-app * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.countries-app {
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+}
+
+.countries-app .container {
+    width: 100%;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.countries-app .header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 15px 0;
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+}
+
+.countries-app .header h1 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.countries-app .header p {
+    font-size: 14px;
+}
+
+.countries-app .search-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.countries-app .search-container input {
+    padding: 15px;
+    border: 1px solid #e0e0e0;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    width: 100%;
+    font-size: 16px;
+    outline: none;
+    flex: 1;
+}
+
+.countries-app .search-container button {
+    padding: 15px 25px;
+    background-color: lightgreen;
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    min-width: 100px;
+}
+
+.countries-app .search-container button:hover {
+    background-color: green;
+    transform: translateY(-1px);
+}
+
+.countries-app .search-container button:active {
+    transform: translateY(1px);
+}
+
+.countries-app .loading,
+.countries-app .error {
+    text-align: center;
+    padding: 15px;
+    font-size: 16px;
+    display: none;
+}
+
+.countries-app .loading.visible {
+    display: block;
+}
+
+.countries-app .error {
+    color: #e41b1b;
+    display: none;
+}
+
+.countries-app .error.visible {
+    display: block;
+}
+
+.countries-app .country-details {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.countries-app .country-details.visible {
+    display: block;
+}
+
+.countries-app .country-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.countries-app .country-flag {
+    width: 100px;
+    max-width: 100%;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.countries-app .country-info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.countries-app .info-item {
+    margin-bottom: 10px;
+}
+
+.countries-app .label {
+    font-weight: bold;
+    color: #555;
+}
+
+.countries-app .region-container {
+    display: none;
+    margin-top: 30px;
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.countries-app .region-container.visible {
+    display: block;
+}
+
+.countries-app .region-container h2 {
+    margin-bottom: 5px;
+    color: #333;
+    font-size: 22px;
+    text-align: center;
+}
+
+.countries-app .region-count {
+    text-align: center;
+    color: #666;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.countries-app .region-countries {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.countries-app .region-country-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+    cursor: pointer;
+    position: relative;
+    border: 1px solid #e0e0e0;
+}
+
+.countries-app .region-country-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+.countries-app .region-country-card.current-country {
+    border: 2px solid #4caf50;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.countries-app .current-label {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #4caf50;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.countries-app .region-country-flag {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+
+.countries-app .region-country-info {
+    padding: 12px;
+}
+
+.countries-app .region-country-name {
+    font-weight: bold;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.countries-app .region-country-capital {
+    font-size: 12px;
+    color: #555;
+    margin-bottom: 2px;
+}
+
+.countries-app .region-country-population {
+    font-size: 11px;
+    color: #777;
+}
+
+.pagination-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination-controls button {
+    padding: 6px 14px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.pagination-controls button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination-controls span {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Mobile S - up to 320px */
+@media (max-width: 320px) {
+    .countries-app .container {
+        padding: 10px;
+    }
+    
+    .countries-app .header h1 {
+        font-size: 20px;
+    }
+    
+    .countries-app .header p {
+        font-size: 12px;
+    }
+    
+    .countries-app .search-container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .countries-app .search-container input {
+        border-radius: 8px;
+        border-right: 1px solid #e0e0e0;
+        padding: 10px;
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .countries-app .search-container button {
+        border-radius: 8px;
+        padding: 10px;
+        font-size: 14px;
+        width: 100%;
+    }
+    
+    .countries-app .region-countries {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .countries-app .country-header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .countries-app .country-flag {
+        width: 80px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .countries-app .country-info {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Pagination Controls for Mobile S */
+    .countries-app .pagination-controls {
+        flex-direction: column;
+        gap: 5px;
+        margin-top: 15px;
+    }
+    
+    .countries-app .pagination-controls button {
+        padding: 5px 8px;
+        font-size: 12px;
+        width: 100%;
+    }
+    
+    .countries-app .pagination-controls span {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 321px) and (max-width: 375px) {
+    .countries-app .container {
+        padding: 15px;
+    }
+
+    .countries-app .region-countries {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .countries-app .search-container {
+        flex-direction: row;
+    }
+
+    .countries-app .search-container input {
+        border-radius: 8px 0 0 8px;
+        border-right: none;
+        padding: 12px;
+        font-size: 14px;
+    }
+
+    .countries-app .search-container button {
+        border-radius: 0 8px 8px 0;
+        padding: 12px 15px;
+        font-size: 14px;
+        min-width: 80px;
+    }
+    
+    /* Pagination Controls for Mobile M */
+    .countries-app .pagination-controls {
+        gap: 5px;
+        margin-top: 15px;
+    }
+    
+    .countries-app .pagination-controls button {
+        padding: 5px 10px;
+        font-size: 12px;
+    }
+    
+    .countries-app .pagination-controls span {
+        font-size: 12px;
+    }
+}
+
+/* Mobile L - 376px to 425px */
+@media (min-width: 376px) and (max-width: 425px) {
+    .countries-app .container {
+        padding: 20px;
+    }
+
+    .countries-app .header h1 {
+        font-size: 26px;
+    }
+
+    .countries-app .country-header {
+        flex-direction: row;
+        text-align: left;
+        justify-content: center;
+    }
+
+    .countries-app .country-flag {
+        margin-right: 15px;
+        margin-bottom: 0;
+    }
+
+    .countries-app .region-countries {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .countries-app .search-container {
+        max-width: 500px;
+    }
+
+    .countries-app .search-container input {
+        padding: 15px;
+    }
+
+    .countries-app .search-container button {
+        padding: 15px 30px;
+    }
+    
+    /* Pagination Controls for Mobile L */
+    .countries-app .pagination-controls {
+        gap: 8px;
+        margin-top: 15px;
+    }
+    
+    .countries-app .pagination-controls button {
+        padding: 5px 12px;
+        font-size: 13px;
+    }
+    
+    .countries-app .pagination-controls span {
+        font-size: 13px;
+    }
+}
+
+/* Tablet - 426px to 768px */
+@media (min-width: 426px) and (max-width: 768px) {
+    .countries-app .container {
+        max-width: 700px;
+        padding: 20px;
+    }
+
+    .countries-app .header h1 {
+        font-size: 28px;
+    }
+
+    .countries-app .header p {
+        font-size: 16px;
+    }
+
+    .countries-app .search-container {
+        flex-direction: row;
+    }
+
+    .countries-app .search-container input {
+        border-radius: 4px 0 0 4px;
+        width: 250px;
+    }
+
+    .countries-app .search-container button {
+        border-radius: 0 4px 4px 0;
+    }
+
+    .countries-app .country-header {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .countries-app .country-flag {
+        width: 120px;
+        margin-right: 20px;
+        margin-bottom: 0;
+    }
+
+    .countries-app .country-info {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .countries-app .region-countries {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .countries-app .search-container {
+        max-width: 500px;
+    }
+
+    .countries-app .search-container input {
+        padding: 15px;
+    }
+
+    .countries-app .search-container button {
+        padding: 15px 30px;
+    }
+    
+    /* Pagination Controls for Tablet */
+    .countries-app .pagination-controls {
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .countries-app .pagination-controls button {
+        padding: 6px 14px;
+        font-size: 14px;
+    }
+    
+    .countries-app .pagination-controls span {
+        font-size: 14px;
+    }
+}
+
+/* Laptop - 769px to 1024px */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .countries-app .container {
+        max-width: 900px;
+        padding: 30px;
+    }
+
+    .countries-app .header h1 {
+        font-size: 32px;
+    }
+
+    .countries-app .search-container input {
+        width: 300px;
+    }
+
+    .countries-app .country-info {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .countries-app .region-countries {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .countries-app .search-container {
+        max-width: 500px;
+    }
+
+    .countries-app .search-container input {
+        padding: 15px;
+    }
+
+    .countries-app .search-container button {
+        padding: 15px 30px;
+    }
+    
+    /* Pagination Controls for Laptop */
+    .countries-app .pagination-controls {
+        gap: 12px;
+        margin-top: 25px;
+    }
+    
+    .countries-app .pagination-controls button {
+        padding: 8px 16px;
+        font-size: 15px;
+    }
+    
+    .countries-app .pagination-controls span {
+        font-size: 15px;
+    }
+}
+
+/* & Above - 1025px+ */
+@media (min-width: 1025px) {
+    .countries-app .container {
+        max-width: 1200px;
+        padding: 30px;
+    }
+
+    .countries-app .header h1 {
+        font-size: 36px;
+    }
+
+    .countries-app .header p {
+        font-size: 18px;
+    }
+
+    .countries-app .search-container input {
+        width: 350px;
+        font-size: 16px;
+    }
+
+    .countries-app .search-container button {
+        font-size: 16px;
+        padding: 12px 25px;
+    }
+
+    .countries-app .country-header {
+        margin-bottom: 30px;
+    }
+
+    .countries-app .country-flag {
+        width: 150px;
+    }
+
+    .countries-app .country-info {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .countries-app .region-countries {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    
+    /* Pagination Controls for Large Screens */
+    .countries-app .pagination-controls {
+        gap: 15px;
+        margin-top: 30px;
+    }
+    
+    .countries-app .pagination-controls button {
+        padding: 8px 18px;
+        font-size: 16px;
+    }
+    
+    .countries-app .pagination-controls span {
+        font-size: 16px;
+    }
+}
