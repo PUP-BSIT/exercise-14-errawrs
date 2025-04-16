@@ -1,9 +1,9 @@
-const countryInput = document.querySelector("#country_input");
-const countryDetails = document.querySelector("#country_details");
-const regionCountries = document.querySelector("#region_countries");
-const regionList = document.querySelector("#region_list");
+let countryInput = document.querySelector("#country_input");
+let countryDetails = document.querySelector("#country_details");
+let regionCountries = document.querySelector("#region_countries");
+let regionList = document.querySelector("#region_list");
 
-const searchCountry = () => {
+const keyword = () => {
     const keyword = countryInput.value.trim();
 
     if (!keyword) {
