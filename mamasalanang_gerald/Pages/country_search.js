@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let searchInput = document.getElementById('country-search');
-    let searchButton = document.getElementById('search-button');
-    let countryDetails = document.getElementById('country-details');
-    let regionCountries = document.getElementById('region-countries');
-    let errorMessage = document.getElementById('error-message');
+    let searchInput = document.getElementById('country_search');
+    let searchButton = document.getElementById('search_button');
+    let countryDetails = document.getElementById('country_details');
+    let regionCountries = document.getElementById('region_countries');
+    let errorMessage = document.getElementById('error_message');
 
-    let countryFlag = document.getElementById('country-flag');
-    let countryName = document.getElementById('country-name');
-    let countryCapital = document.getElementById('country-capital');
-    let countryRegion = document.getElementById('country-region');
-    let countryPopulation = document.getElementById('country-population');
-    let countryLanguages = document.getElementById('country-languages');
-    let countryCurrency = document.getElementById('country-currency');
+    let countryFlag = document.getElementById('country_flag');
+    let countryName = document.getElementById('country_name');
+    let countryCapital = document.getElementById('country_capital');
+    let countryRegion = document.getElementById('country_region');
+    let countryPopulation = document.getElementById('country_population');
+    let countryLanguages = document.getElementById('country_languages');
+    let countryCurrency = document.getElementById('country_currency');
  
-    let countriesGrid = document.getElementById('countries-grid');
+    let countriesGrid = document.getElementById('countries_grid');
     
     searchButton.addEventListener('click', searchCountry);
     searchInput.addEventListener('keypress', (e) => {
