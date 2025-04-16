@@ -537,8 +537,6 @@ button[type='submit']:active {
     font-style: italic;
 }
 
-<<<<<<< HEAD
-=======
 .search-container {
     margin: 30px auto;
     display: flex;
@@ -700,7 +698,6 @@ button[type='submit']:active {
     text-decoration: underline;
 }
 
->>>>>>> main
 /* Footer */
 .footer {
     background-color: #333;
@@ -809,8 +806,6 @@ button[type='submit']:active {
     .teammate-comment span {
         font-size: 0.8rem;
     }
-<<<<<<< HEAD
-=======
 
     .search-container {
         flex-direction: column;
@@ -845,7 +840,6 @@ button[type='submit']:active {
     .country-card h4 {
         font-size: 1rem;
     }
->>>>>>> main
 }
 
 /* Mobile M */
@@ -936,8 +930,6 @@ button[type='submit']:active {
         font-size: 40px;
         top: -15px;
     }
-<<<<<<< HEAD
-=======
 
     .country-flag {
         width: 180px;
@@ -950,7 +942,6 @@ button[type='submit']:active {
     .country-card img {
         width: 90px;
     }
->>>>>>> main
 }
 
 /* Mobile L */
@@ -1041,13 +1032,10 @@ button[type='submit']:active {
         font-size: 45px;
         top: -18px;
     }
-<<<<<<< HEAD
-=======
 
     .countries-grid {
         grid-template-columns: 1fr;
     }
->>>>>>> main
 }
 
 @media screen and (max-width: 600px) {
